@@ -14,7 +14,7 @@ const SignUpPage = () => {
 
   const handleSignUp = async () => {
     if (password !== repeatPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
       return;
     }
     try {
@@ -26,9 +26,9 @@ const SignUpPage = () => {
       setRepeatPassword('');
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
-        alert(`Error: ${error.response.data.message}`);
+        setError(`Error: ${error.response.data.message}`);
       } else {
-        alert('Error signing up');
+        setError('Error signing up');
       }
     }
   };

@@ -25,8 +25,8 @@ const LoginPage = () => {
 
 
     } catch (error) {
-      console.error('Error during login:', error.response ? error.response.data : error.message);
-      alert('Invalid credentials');
+      setError('Error during login:', error.response ? error.response.data : error.message);
+      setMessage('Invalid credentials');
     }
   };
 

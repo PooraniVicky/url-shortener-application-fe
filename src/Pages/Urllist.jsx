@@ -26,7 +26,7 @@ function Urllist() {
   }, []); // Add an empty dependency array to run the effect only once
 
   return (
-    <div className="container url-list mt-5 py-5">
+    <div className="container url-list mt-5 ">
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-md-10 col-lg-10">
           <h2 className="text-center" style={{ color: 'darkmagenta' }}>URL List</h2>

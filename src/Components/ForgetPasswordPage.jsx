@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ForgotPasswordPage = () => {
   const [formData, setFormData] = useState({ email: '' });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('https://url-shortener-application-be.onrender.com/user/forgot-password', formData);
       setMessage('Password reset link sent to your email.');
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000);
     } catch (err) {
       setError(err.response.data.message);
     }
